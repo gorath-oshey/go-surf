@@ -1,108 +1,105 @@
 $(function () {
-
-    $('.header__slider').slick({
+    $(".header__slider").slick({
         infinite: true,
         fade: true,
         prevArrow: '<img class="slider-arrows slider-arrows__left" src="img/arrows-left.svg" alt="">',
         nextArrow: '<img class="slider-arrows slider-arrows__right" src="img/arrows-right.svg" alt="">',
-        asNavFor: '.slider-dotshead'
+        asNavFor: ".slider-dotshead",
     });
 
-    $('.slider-dotshead').slick({
+    $(".slider-dotshead").slick({
         slidesToShow: 4,
         slidesToScroll: 4,
-        asNavFor: '.header__slider',
-        responsive: [
-            {
-                breakpoint: 961,
-                settings: 'unslick'
-            }
-        ]
+        asNavFor: ".header__slider",
+        responsive: [{
+            breakpoint: 961,
+            settings: "unslick",
+        }, ],
     });
 
-    $('.slider-map').slick({
+    $(".slider-map").slick({
         slidesToShow: 8,
         slidesToScroll: 1,
         arrows: false,
-        asNavFor: '.surf__slider',
+        asNavFor: ".surf__slider",
         focusOnSelect: true,
-        responsive: [
-            {
+        responsive: [{
                 breakpoint: 1103,
                 settings: {
-                    slidesToShow: 3
-                }
+                    slidesToShow: 3,
+                },
             },
             {
                 breakpoint: 900,
                 settings: {
                     slidesToShow: 2,
-                    centerMode: true
-                }
+                    centerMode: true,
+                },
             },
             {
                 breakpoint: 720,
                 settings: {
                     slidesToShow: 1,
-                    centerMode: true
-                }
-            }
-        ]
+                    centerMode: true,
+                },
+            },
+        ],
     });
 
-    $('.surf__slider').slick({
+    $(".surf__slider").slick({
         slidesToShow: 4,
         slidesToScroll: 1,
         prevArrow: '<img class="slider-arrows slider-arrows__left" src="img/arrows-left.svg" alt="">',
         nextArrow: '<img class="slider-arrows slider-arrows__right" src="img/arrows-right.svg" alt="">',
-        asNavFor: '.slider-map',
-        responsive: [
-            {
+        asNavFor: ".slider-map",
+        responsive: [{
                 breakpoint: 1210,
                 settings: {
-                    slidesToShow: 3
-                }
+                    slidesToShow: 3,
+                },
             },
             {
                 breakpoint: 900,
                 settings: {
-                    slidesToShow: 2
-                }
+                    slidesToShow: 2,
+                },
             },
             {
                 breakpoint: 720,
                 settings: {
                     slidesToShow: 1,
-                    centerMode: true
-                }
+                    centerMode: true,
+                },
             },
             {
                 breakpoint: 426,
                 settings: {
                     slidesToShow: 1,
-                    centerMode: false
-                }
-            }
-        ]
+                    centerMode: false,
+                },
+            },
+        ],
     });
 
-    $('.holder__slider, .shop__slider').slick({
+    $(".holder__slider, .shop__slider").slick({
         infinite: true,
         fade: true,
         prevArrow: '<img class="slider-arrows slider-arrows__left" src="img/arrows-left.svg" alt="">',
         nextArrow: '<img class="slider-arrows slider-arrows__right" src="img/arrows-right.svg" alt="">',
     });
 
-    $('<div class="quantity-nav"><div class="quantity-button quantity-up"><img src="../img/plus.svg" alt=""></div><div class="quantity-button quantity-down"><img src="../img/minus.svg" alt=""></div></div>').insertAfter('.quantity input');
-    $('.quantity').each(function() {
+    $(
+        '<div class="quantity-nav"><div class="quantity-button quantity-up"><img src="../img/plus.svg" alt=""></div><div class="quantity-button quantity-down"><img src="../img/minus.svg" alt=""></div></div>'
+    ).insertAfter(".quantity input");
+    $(".quantity").each(function () {
         var spinner = $(this),
             input = spinner.find('input[type="number"]'),
-            btnUp = spinner.find('.quantity-up'),
-            btnDown = spinner.find('.quantity-down'),
-            min = input.attr('min'),
-            max = input.attr('max');
+            btnUp = spinner.find(".quantity-up"),
+            btnDown = spinner.find(".quantity-down"),
+            min = input.attr("min"),
+            max = input.attr("max");
 
-        btnUp.click(function() {
+        btnUp.click(function () {
             var oldValue = parseFloat(input.val());
             if (oldValue >= max) {
                 var newVal = oldValue;
@@ -113,7 +110,7 @@ $(function () {
             spinner.find("input").trigger("change");
         });
 
-        btnDown.click(function() {
+        btnDown.click(function () {
             var oldValue = parseFloat(input.val());
             if (oldValue <= min) {
                 var newVal = oldValue;
@@ -125,22 +122,25 @@ $(function () {
         });
     });
 
-    $('.quantity-button').on('click', function () {
-        let summ = $('.nights').val() * $('.summ').data('nights') + ($('.guests').val() - 1) * $('.summ').data('guests');
-        $('.summ').html('$' + summ);
+    $(".quantity-button").on("click", function () {
+        let summ =
+            $(".nights").val() * $(".summ").data("nights") +
+            ($(".guests").val() - 1) * $(".summ").data("guests");
+        $(".summ").html("$" + summ);
     });
 
-    let summ = $('.nights').val() * $('.summ').data('nights') + ($('.guests').val() - 1) * $('.summ').data('guests');
-    $('.summ').html('$' + summ);
+    let summ =
+        $(".nights").val() * $(".summ").data("nights") +
+        ($(".guests").val() - 1) * $(".summ").data("guests");
+    $(".summ").html("$" + summ);
 
-    $('.surfboard-box__circle').on('click', function () {
-        $(this).toggleClass('active');
+    $(".surfboard-box__circle").on("click", function () {
+        $(this).toggleClass("active");
     });
 
-    $('.menu-btn').on('click', function () {
-        $('.menu').toggleClass('active');
+    $(".menu-btn").on("click", function () {
+        $(".menu").toggleClass("active");
     });
 
     new WOW().init();
-
 });
