@@ -22,6 +22,7 @@
     "wow.js": "^1.2.2"
   },
   "dependencies": {
+    "jshint": "^2.13.0",
     "postcss": "^7.0.32",
     "slick-carousel": "^1.8.1",
     "stylelint": "^13.6.1"
